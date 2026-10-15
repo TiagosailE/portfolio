@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "title": "Tiago Santos · Full-stack developer",
+    "description": "Full-stack developer from Paulo Afonso, Brazil. React and TypeScript on the front end, Ruby on Rails on the back end, AI in the workflow."
+  },
+  "nav": {
+    "projects": "Projects",
+    "about": "About",
+    "contact": "Contact",
+    "switchTo": "Português",
+    "switchShort": "PT",
+    "skip": "Skip to content"
+  },
+  "hero": {
+    "place": "Paulo Afonso, Bahia, Brazil",
+    "coords": "9°24′S 38°13′W",
+    "role": "Full-stack developer",
+    "lead": "I build interfaces with React and TypeScript and back ends with Ruby on Rails. I use AI every day in my workflow, without skipping tests or reviews.",
+    "status": "Open to roles",
+    "statusDetail": "Information Systems, graduating Dec 2026",
+    "toProjects": "See projects",
+    "email": "Send an email"
+  },
+  "projects": {
+    "eyebrow": "Projects",
+    "title": "What I've built",
+    "lead": "Open source, from the database to the interface. For each project, I point out the technical decision I'd defend in an interview.",
+    "proofLabel": "The decision",
+    "caseStudy": "Read the case study",
+    "more": "More projects",
+    "external": "opens in a new tab"
+  },
+  "practice": {
+    "eyebrow": "How I work",
+    "title": "AI in the workflow, ownership with me",
+    "lead": "I use Claude Code every day. It speeds things up, but code only reaches main after tests, CI and review, and every line is still my responsibility."
+  },
+  "about": {
+    "eyebrow": "About",
+    "title": "From fixing computers to shipping systems",
+    "timeline": "Path so far"
+  },
+  "stack": {
+    "eyebrow": "Stack",
+    "title": "Tools I use"
+  },
+  "github": {
+    "eyebrow": "GitHub",
+    "title": "Recent activity",
+    "commits": "commits in the last 12 months",
+    "prs": "merged pull requests",
+    "repos": "public repositories",
+    "since": "on GitHub since",
+    "recent": "Latest merged PRs",
+    "profile": "See profile",
+    "unavailable": "GitHub numbers didn't load right now. The full profile is at the link below."
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Get in touch",
+    "lead": "I reply quickly by email or WhatsApp. I'm on LinkedIn too.",
+    "copy": "Copy email",
+    "copied": "Email copied",
+    "whatsapp": "WhatsApp",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "case": {
+    "back": "All projects",
+    "role": "Role",
+    "stack": "Stack",
+    "links": "Links",
+    "context": "Context",
+    "contributions": "What I did",
+    "decisions": "Technical decisions",
+    "figures": "By the numbers",
+    "gallery": "Screens",
+    "next": "Next case study"
+  },
+  "footer": {
+    "built": "Built by Tiago Santos with Next.js and GSAP.",
+    "source": "Source on GitHub"
+  }
+}
