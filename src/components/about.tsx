@@ -15,13 +15,15 @@ export function About() {
       <div className="grid gap-14 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-6">
           <SectionHeading id="sobre-titulo" eyebrow={t("eyebrow")} title={t("title")} />
-          <Reveal className="mt-10 w-48 sm:w-60">
+          <Reveal className="mt-10 w-56 sm:w-72">
+            {/* Fora do otimizador: o AVIF dele reduz a qualidade e deixa o rosto com aspecto de cera.
+                O arquivo já vem em 720px, o bastante para tela retina. */}
             <Image
               src="/about/tiago.webp"
               alt={t("photo")}
-              width={900}
-              height={1200}
-              sizes="(min-width: 40rem) 15rem, 12rem"
+              width={720}
+              height={960}
+              unoptimized
               className="w-full rounded-lg shadow-[0_30px_60px_-30px_rgb(19_36_34/0.45)] ring-1 ring-ink/10"
             />
           </Reveal>
