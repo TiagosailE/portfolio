@@ -36,7 +36,7 @@ export function Hero() {
         <span>{t("coords")}</span>
       </p>
 
-      <h1 id="hero-name" className="hero-name display mt-6 text-[clamp(3.6rem,15vw,11.5rem)] uppercase">
+      <h1 id="hero-name" className="hero-name display mt-6 text-[clamp(3.1rem,12.5vw,9.25rem)] uppercase">
         <span className="block">Tiago</span> <span className="block">Santos</span>
       </h1>
 
