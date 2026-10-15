@@ -9,13 +9,14 @@
     "contact": "Contact",
     "switchTo": "Português",
     "switchShort": "PT",
-    "skip": "Skip to content"
+    "skip": "Skip to content",
+    "label": "Main"
   },
   "hero": {
     "place": "Paulo Afonso, Bahia, Brazil",
     "coords": "9°24′S 38°13′W",
     "role": "Full-stack developer",
-    "lead": "I build interfaces with React and TypeScript and back ends with Ruby on Rails. I use AI every day in my workflow, without skipping tests or reviews.",
+    "lead": "React and TypeScript on the front end, Ruby on Rails on the back end. I use AI every day, without skipping tests or review.",
     "status": "Open to roles",
     "statusDetail": "Information Systems, graduating Dec 2026",
     "toProjects": "See projects",
@@ -24,8 +25,7 @@
   "projects": {
     "eyebrow": "Projects",
     "title": "What I've built",
-    "lead": "Open source, from the database to the interface. For each project, I point out the technical decision I'd defend in an interview.",
-    "proofLabel": "The decision",
+    "proofLabel": "Technical highlight",
     "caseStudy": "Read the case study",
     "more": "More projects",
     "external": "opens in a new tab"
@@ -33,7 +33,7 @@
   "practice": {
     "eyebrow": "How I work",
     "title": "AI in the workflow, ownership with me",
-    "lead": "I use Claude Code every day. It speeds things up, but code only reaches main after tests, CI and review, and every line is still my responsibility."
+    "lead": "I use Claude Code every day. Nothing reaches main without tests, CI and review."
   },
   "about": {
     "eyebrow": "About",
@@ -50,15 +50,13 @@
     "commits": "commits in the last 12 months",
     "prs": "merged pull requests",
     "repos": "public repositories",
-    "since": "on GitHub since",
-    "recent": "Latest merged PRs",
     "profile": "See profile",
-    "unavailable": "GitHub numbers didn't load right now. The full profile is at the link below."
+    "unavailable": "GitHub numbers didn't load right now."
   },
   "contact": {
     "eyebrow": "Contact",
     "title": "Get in touch",
-    "lead": "I reply quickly by email or WhatsApp. I'm on LinkedIn too.",
+    "lead": "I reply quickly by email or WhatsApp.",
     "copy": "Copy email",
     "copied": "Email copied",
     "whatsapp": "WhatsApp",

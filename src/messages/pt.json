@@ -9,13 +9,14 @@
     "contact": "Contato",
     "switchTo": "English",
     "switchShort": "EN",
-    "skip": "Pular para o conteúdo"
+    "skip": "Pular para o conteúdo",
+    "label": "Principal"
   },
   "hero": {
     "place": "Paulo Afonso, Bahia",
     "coords": "9°24′S 38°13′O",
     "role": "Desenvolvedor full-stack",
-    "lead": "Faço interfaces em React e TypeScript e back-end em Ruby on Rails. Uso IA todo dia no fluxo de trabalho, sem abrir mão de teste e revisão.",
+    "lead": "React e TypeScript na interface, Ruby on Rails no back-end. Uso IA todo dia, sem pular teste nem revisão.",
     "status": "Aberto a vagas",
     "statusDetail": "Sistemas de Informação, conclusão em dez/2026",
     "toProjects": "Ver projetos",
@@ -24,8 +25,7 @@
   "projects": {
     "eyebrow": "Projetos",
     "title": "O que eu construí",
-    "lead": "Código aberto, do banco à interface. Em cada projeto, destaco a decisão técnica que eu defenderia numa entrevista.",
-    "proofLabel": "A decisão",
+    "proofLabel": "Destaque técnico",
     "caseStudy": "Ler o estudo de caso",
     "more": "Outros projetos",
     "external": "abre em nova aba"
@@ -33,7 +33,7 @@
   "practice": {
     "eyebrow": "Como eu trabalho",
     "title": "IA no fluxo, responsabilidade comigo",
-    "lead": "Uso o Claude Code todos os dias. Ele acelera o trabalho, mas o código só chega na main depois de passar por teste, CI e revisão, e cada linha continua sendo minha responsabilidade."
+    "lead": "Uso o Claude Code todo dia. Nada chega na main sem teste, CI e revisão."
   },
   "about": {
     "eyebrow": "Sobre",
@@ -50,15 +50,13 @@
     "commits": "commits nos últimos 12 meses",
     "prs": "pull requests mergeados",
     "repos": "repositórios públicos",
-    "since": "no GitHub desde",
-    "recent": "Últimos PRs mergeados",
     "profile": "Ver perfil",
-    "unavailable": "Os números do GitHub não carregaram agora. O perfil completo está no link abaixo."
+    "unavailable": "Os números do GitHub não carregaram agora."
   },
   "contact": {
     "eyebrow": "Contato",
     "title": "Fale comigo",
-    "lead": "Respondo rápido por e-mail ou WhatsApp. Também estou no LinkedIn.",
+    "lead": "Respondo rápido por e-mail ou WhatsApp.",
     "copy": "Copiar e-mail",
     "copied": "E-mail copiado",
     "whatsapp": "WhatsApp",
