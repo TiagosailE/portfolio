@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { usePathname } from "next/navigation";
 import { gsap, MOTION_OK, useGSAP } from "@/lib/gsap";
 
 const WIDTH = 44;
@@ -24,6 +25,7 @@ function riverPath({ height, stations }: Geometry) {
 
 export function River() {
   const root = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
   const [geometry, setGeometry] = useState<Geometry | null>(null);
 
   useEffect(() => {
@@ -36,7 +38,8 @@ export function River() {
         (element) => Math.round(element.getBoundingClientRect().top + window.scrollY - top + 6),
       );
       setGeometry((current) => {
-        const next = { height: container.scrollHeight, stations };
+        // offsetHeight ignora o próprio SVG (absoluto); scrollHeight o incluiria e a altura nunca diminuiria ao trocar de página.
+        const next = { height: container.offsetHeight, stations };
         const same =
           current &&
           current.height === next.height &&
@@ -49,7 +52,7 @@ export function River() {
     const observer = new ResizeObserver(measure);
     observer.observe(container);
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
   useGSAP(
     () => {
@@ -85,7 +88,7 @@ export function River() {
   );
 
   return (
-    <div ref={root} aria-hidden="true" className="pointer-events-none absolute inset-0 hidden lg:block">
+    <div ref={root} aria-hidden="true" className="pointer-events-none absolute inset-0 hidden overflow-hidden lg:block">
       <div className="shell relative h-full">
         {geometry && (
           <svg
