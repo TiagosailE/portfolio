@@ -35,7 +35,7 @@ src/
   components/           seções da página
   content/              projetos, trajetória e stack (texto em pt e en)
   messages/             textos da interface em pt e en
-  lib/github.ts         números e PRs recentes do GitHub
+  lib/github.ts         números do GitHub
 public/projects/        capturas de tela dos projetos
 ```
 

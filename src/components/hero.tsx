@@ -27,7 +27,7 @@ export function Hero() {
   );
 
   return (
-    <section ref={root} aria-labelledby="hero-name" className="shell pb-20 pt-16 sm:pt-24 lg:pb-28 lg:pt-28">
+    <section ref={root} aria-labelledby="hero-name" className="shell pb-6 pt-14 sm:pt-20 lg:pb-12 lg:pt-24">
       <p className="eyebrow hero-rise flex flex-wrap gap-x-4 gap-y-1" data-station>
         <span>{t("place")}</span>
         <span aria-hidden="true" className="text-rule">
@@ -36,8 +36,11 @@ export function Hero() {
         <span>{t("coords")}</span>
       </p>
 
-      <h1 id="hero-name" className="hero-name display mt-6 text-[clamp(3.1rem,12.5vw,9.25rem)] uppercase">
-        <span className="block">Tiago</span> <span className="block">Santos</span>
+      <h1
+        id="hero-name"
+        className="hero-name display mt-6 text-[clamp(2.75rem,11vw,4.5rem)] uppercase lg:text-[clamp(5rem,8.2vw,6.5rem)]"
+      >
+        <span className="block lg:inline">Tiago</span> <span className="block lg:inline">Santos</span>
       </h1>
 
       <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] lg:gap-16">
@@ -57,6 +60,14 @@ export function Hero() {
               className="rounded-full bg-ink px-6 py-3 text-sm font-medium text-paper transition-colors hover:bg-river"
             >
               {t("toProjects")}
+            </a>
+            <a
+              href={contact.cv}
+              download={contact.cvFile}
+              hrefLang="pt-BR"
+              className="rounded-full border border-ink/30 px-6 py-3 text-sm font-medium transition-colors hover:border-river hover:text-river"
+            >
+              {t("cv")} <span aria-hidden="true">↓</span>
             </a>
             <a
               href={`mailto:${contact.email}`}

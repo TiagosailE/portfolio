@@ -8,6 +8,8 @@ export const contact = {
   github: "https://github.com/TiagosailE",
   githubUser: "TiagosailE",
   repo: "https://github.com/TiagosailE/portfolio",
+  cv: "/curriculo-tiago-santos.pdf",
+  cvFile: "Curriculo_Tiago_Santos.pdf",
 };
 
 export const about: Localized[] = [
@@ -116,8 +118,8 @@ export const practices: Practice[] = [
   {
     title: { pt: "Um manual por projeto", en: "A manual for each project" },
     body: {
-      pt: "Cada projeto tem uma skill que a IA lê antes de tocar em qualquer coisa: arquitetura, comandos, armadilhas do ambiente e regras de commit. O contexto não depende da memória da conversa.",
-      en: "Every project has a skill the AI reads before touching anything: architecture, commands, environment pitfalls and commit rules. Context doesn't depend on chat memory.",
+      pt: "Uma skill com arquitetura, comandos e regras que a IA lê antes de tocar em qualquer coisa.",
+      en: "A skill with architecture, commands and rules that the AI reads before touching anything.",
     },
     excerpt: {
       label: { pt: "trecho de skills/runify/SKILL.md", en: "excerpt from skills/runify/SKILL.md" },
@@ -130,8 +132,8 @@ export const practices: Practice[] = [
   {
     title: { pt: "Decisão registrada, não lembrada", en: "Decisions written down, not remembered" },
     body: {
-      pt: "Um arquivo de progresso guarda o estado do projeto e separa o que foi decisão minha [E] do que eu deleguei [C]. Uma sessão nova retoma dali, e eu sei sempre quem decidiu o quê.",
-      en: "A progress file keeps the project state and separates my own decisions [E] from the ones I delegated [C]. A new session picks up from there, and I always know who decided what.",
+      pt: "Um arquivo de progresso separa o que eu decidi [E] do que deleguei [C]. Uma sessão nova retoma dali.",
+      en: "A progress file separates what I decided [E] from what I delegated [C]. A new session picks up from there.",
     },
     excerpt: {
       label: { pt: "trecho de PROGRESS.md do Runify", en: "excerpt from Runify's PROGRESS.md" },
@@ -145,8 +147,8 @@ export const practices: Practice[] = [
   {
     title: { pt: "Nada vai pra main sem passar pelo CI", en: "Nothing reaches main without CI" },
     body: {
-      pt: "Cobertura mínima, análise de segurança e auditoria de dependências barram o merge. No Runify, parei as features para uma revisão técnica completa em 4 PRs antes de abrir o app para os participantes.",
-      en: "Minimum coverage, security analysis and dependency audits block the merge. On Runify, I paused features for a full technical review in 4 PRs before opening the app to participants.",
+      pt: "Cobertura mínima, análise de segurança e auditoria de dependências barram o merge. A revisão técnica do Runify, em 4 PRs:",
+      en: "Minimum coverage, security analysis and dependency audits block the merge. Runify's technical review, in 4 PRs:",
     },
     links: [
       { label: "#77", href: "https://github.com/TiagosailE/Runify/pull/77" },

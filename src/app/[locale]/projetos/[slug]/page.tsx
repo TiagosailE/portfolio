@@ -21,10 +21,21 @@ export async function generateMetadata({ params }: PageProps<"/[locale]/projetos
   const project = findCaseStudy(slug);
   if (!project) return {};
   const lang = locale as Locale;
+  const title = `${project.name} · Tiago Santos`;
+  const description = pick(project.tagline, lang);
 
   return {
-    title: `${project.name} · Tiago Santos`,
-    description: pick(project.tagline, lang),
+    title,
+    description,
+    // Sem isso o openGraph do layout é herdado inteiro e o link compartilhado mostra o título da home.
+    // Ao sobrescrever, a imagem do layout deixa de vir junto, então ela é apontada de novo aqui.
+    openGraph: {
+      title,
+      description,
+      type: "article",
+      locale: lang === "pt" ? "pt_BR" : "en_US",
+      images: [{ url: `/${lang}/opengraph-image`, width: 1200, height: 630 }],
+    },
     alternates: {
       canonical: getPathname({ locale: lang, href: { pathname: "/projetos/[slug]", params: { slug } } }),
       languages: {
@@ -142,7 +153,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/[locale]/pro
         <h2 id="decisoes" className="eyebrow" data-station>
           {t("decisions")}
         </h2>
-        <div className="mt-8 grid gap-10 md:grid-cols-2 lg:gap-x-12">
+        <div className="mt-8 grid gap-10 lg:grid-cols-3 lg:gap-x-12">
           {study.decisions.map((decision) => (
             <div key={decision.title.pt} className="border-l-2 border-river pl-5">
               <h3 className="display-tight text-[1.45rem]">{pick(decision.title, lang)}</h3>

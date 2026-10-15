@@ -8,6 +8,9 @@ import { SectionHeading } from "./section-heading";
 import { Reveal } from "./reveal";
 import { PhoneStack } from "./phone-stack";
 
+// Os cards mostram só o essencial da stack; a lista completa fica no estudo de caso.
+const CARD_STACK = 5;
+
 export function Projects() {
   const t = useTranslations("projects");
   const withCase = featured.filter((project) => project.caseStudy);
@@ -15,7 +18,7 @@ export function Projects() {
 
   return (
     <section id="projetos" aria-labelledby="projetos-titulo" className="shell py-20 lg:py-28">
-      <SectionHeading id="projetos-titulo" eyebrow={t("eyebrow")} title={t("title")} lead={t("lead")} />
+      <SectionHeading id="projetos-titulo" eyebrow={t("eyebrow")} title={t("title")} />
 
       <div className="mt-16 space-y-24 lg:space-y-32">
         {withCase.map((project, index) => (
@@ -44,6 +47,7 @@ export function Projects() {
 function FeaturedProject({ project, flip }: { project: Project; flip: boolean }) {
   const t = useTranslations("projects");
   const locale = useLocale() as Locale;
+  const caseHref = { pathname: "/projetos/[slug]", params: { slug: project.slug } } as const;
 
   return (
     <article className="grid items-center gap-10 lg:grid-cols-12 lg:gap-12">
@@ -53,10 +57,10 @@ function FeaturedProject({ project, flip }: { project: Project; flip: boolean })
         <p className="mt-4 text-[1.1rem]">{pick(project.tagline, locale)}</p>
         <p className="mono mt-4 text-[0.72rem] text-stone">{pick(project.role, locale)}</p>
         <Proof label={t("proofLabel")} text={pick(project.proof, locale)} />
-        <StackList items={project.stack} />
+        <StackList items={project.stack.slice(0, CARD_STACK)} />
         <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3">
           <Link
-            href={{ pathname: "/projetos/[slug]", params: { slug: project.slug } }}
+            href={caseHref}
             className="rounded-full bg-ink px-5 py-2.5 text-sm font-medium text-paper transition-colors hover:bg-river"
           >
             {t("caseStudy")}
@@ -66,20 +70,23 @@ function FeaturedProject({ project, flip }: { project: Project; flip: boolean })
       </div>
 
       <Reveal className={`lg:col-span-7 ${flip ? "lg:order-1" : ""}`}>
-        {project.coverKind === "phone" && project.phones ? (
-          <PhoneStack shots={project.phones} locale={locale} />
-        ) : (
-          project.cover && (
-            <Image
-              src={project.cover.src}
-              alt={pick(project.cover.alt, locale)}
-              width={project.cover.width}
-              height={project.cover.height}
-              sizes="(min-width: 64rem) 60vw, 100vw"
-              className="w-full rounded-lg shadow-[0_30px_60px_-30px_rgb(19_36_34/0.45)] ring-1 ring-ink/10"
-            />
-          )
-        )}
+        {/* Atalho para quem clica direto na imagem; fora do Tab porque o botão ao lado já leva ao mesmo lugar. */}
+        <Link href={caseHref} tabIndex={-1} className="block transition-transform duration-500 hover:-translate-y-1">
+          {project.coverKind === "phone" && project.phones ? (
+            <PhoneStack shots={project.phones} locale={locale} />
+          ) : (
+            project.cover && (
+              <Image
+                src={project.cover.src}
+                alt={pick(project.cover.alt, locale)}
+                width={project.cover.width}
+                height={project.cover.height}
+                sizes="(min-width: 64rem) 60vw, 100vw"
+                className="w-full rounded-lg shadow-[0_30px_60px_-30px_rgb(19_36_34/0.45)] ring-1 ring-ink/10"
+              />
+            )
+          )}
+        </Link>
       </Reveal>
     </article>
   );
@@ -99,7 +106,7 @@ function CompactProject({ project }: { project: Project }) {
       <div className="lg:col-span-8">
         <p className="text-[1.1rem]">{pick(project.tagline, locale)}</p>
         <Proof label={t("proofLabel")} text={pick(project.proof, locale)} />
-        <StackList items={project.stack} />
+        <StackList items={project.stack.slice(0, CARD_STACK)} />
         <div className="mt-6 flex flex-wrap gap-x-6 gap-y-3">
           <ExternalLinks links={project.links} locale={locale} />
         </div>
