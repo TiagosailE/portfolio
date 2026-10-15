@@ -1,0 +1,84 @@
+{
+  "meta": {
+    "title": "Tiago Santos · Desenvolvedor full-stack",
+    "description": "Desenvolvedor full-stack de Paulo Afonso, BA. React e TypeScript na interface, Ruby on Rails no back-end, IA no fluxo de trabalho."
+  },
+  "nav": {
+    "projects": "Projetos",
+    "about": "Sobre",
+    "contact": "Contato",
+    "switchTo": "English",
+    "switchShort": "EN",
+    "skip": "Pular para o conteúdo"
+  },
+  "hero": {
+    "place": "Paulo Afonso, Bahia",
+    "coords": "9°24′S 38°13′O",
+    "role": "Desenvolvedor full-stack",
+    "lead": "Faço interfaces em React e TypeScript e back-end em Ruby on Rails. Uso IA todo dia no fluxo de trabalho, sem abrir mão de teste e revisão.",
+    "status": "Aberto a vagas",
+    "statusDetail": "Sistemas de Informação, conclusão em dez/2026",
+    "toProjects": "Ver projetos",
+    "email": "Mandar um e-mail"
+  },
+  "projects": {
+    "eyebrow": "Projetos",
+    "title": "O que eu construí",
+    "lead": "Código aberto, do banco à interface. Em cada projeto, destaco a decisão técnica que eu defenderia numa entrevista.",
+    "proofLabel": "A decisão",
+    "caseStudy": "Ler o estudo de caso",
+    "more": "Outros projetos",
+    "external": "abre em nova aba"
+  },
+  "practice": {
+    "eyebrow": "Como eu trabalho",
+    "title": "IA no fluxo, responsabilidade comigo",
+    "lead": "Uso o Claude Code todos os dias. Ele acelera o trabalho, mas o código só chega na main depois de passar por teste, CI e revisão, e cada linha continua sendo minha responsabilidade."
+  },
+  "about": {
+    "eyebrow": "Sobre",
+    "title": "Do conserto de computador ao sistema em produção",
+    "timeline": "Trajetória"
+  },
+  "stack": {
+    "eyebrow": "Stack",
+    "title": "Ferramentas que eu uso"
+  },
+  "github": {
+    "eyebrow": "GitHub",
+    "title": "Atividade recente",
+    "commits": "commits nos últimos 12 meses",
+    "prs": "pull requests mergeados",
+    "repos": "repositórios públicos",
+    "since": "no GitHub desde",
+    "recent": "Últimos PRs mergeados",
+    "profile": "Ver perfil",
+    "unavailable": "Os números do GitHub não carregaram agora. O perfil completo está no link abaixo."
+  },
+  "contact": {
+    "eyebrow": "Contato",
+    "title": "Fale comigo",
+    "lead": "Respondo rápido por e-mail ou WhatsApp. Também estou no LinkedIn.",
+    "copy": "Copiar e-mail",
+    "copied": "E-mail copiado",
+    "whatsapp": "WhatsApp",
+    "linkedin": "LinkedIn",
+    "github": "GitHub"
+  },
+  "case": {
+    "back": "Todos os projetos",
+    "role": "Papel",
+    "stack": "Stack",
+    "links": "Links",
+    "context": "Contexto",
+    "contributions": "O que eu fiz",
+    "decisions": "Decisões técnicas",
+    "figures": "Em números",
+    "gallery": "Telas",
+    "next": "Próximo estudo de caso"
+  },
+  "footer": {
+    "built": "Feito por Tiago Santos com Next.js e GSAP.",
+    "source": "Código no GitHub"
+  }
+}
