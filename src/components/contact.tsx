@@ -9,6 +9,7 @@ export function Contact() {
     { label: t("whatsapp"), detail: contact.whatsappDisplay, href: contact.whatsappHref },
     { label: t("linkedin"), detail: "tiago-santos-64a028320", href: contact.linkedin },
     { label: t("github"), detail: `@${contact.githubUser}`, href: contact.github },
+    { label: t("cv"), detail: t("cvDetail"), href: contact.cv, download: contact.cvFile },
   ];
 
   return (
@@ -32,18 +33,19 @@ export function Contact() {
           <CopyEmail email={contact.email} copyLabel={t("copy")} copiedLabel={t("copied")} />
         </div>
 
-        <ul className="mt-14 grid gap-px overflow-hidden rounded-lg bg-paper/15 sm:grid-cols-3">
+        <ul className="mt-14 grid gap-px overflow-hidden rounded-lg bg-paper/15 sm:grid-cols-2 lg:grid-cols-4">
           {channels.map((channel) => (
             <li key={channel.href} className="bg-ink">
               <a
                 href={channel.href}
-                target="_blank"
-                rel="noreferrer"
-                className="group block p-6 transition-colors hover:bg-river-deep"
+                {...(channel.download
+                  ? { download: channel.download, hrefLang: "pt-BR" }
+                  : { target: "_blank", rel: "noreferrer" })}
+                className="group block h-full p-6 transition-colors hover:bg-river-deep"
               >
                 <span className="eyebrow text-paper/60">{channel.label}</span>
                 <span className="mt-2 block text-[1.1rem]">
-                  {channel.detail} <span aria-hidden="true">↗</span>
+                  {channel.detail} <span aria-hidden="true">{channel.download ? "↓" : "↗"}</span>
                 </span>
               </a>
             </li>

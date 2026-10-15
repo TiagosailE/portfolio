@@ -62,6 +62,14 @@ export function Hero() {
               {t("toProjects")}
             </a>
             <a
+              href={contact.cv}
+              download={contact.cvFile}
+              hrefLang="pt-BR"
+              className="rounded-full border border-ink/30 px-6 py-3 text-sm font-medium transition-colors hover:border-river hover:text-river"
+            >
+              {t("cv")} <span aria-hidden="true">↓</span>
+            </a>
+            <a
               href={`mailto:${contact.email}`}
               className="rounded-full border border-ink/30 px-6 py-3 text-sm font-medium transition-colors hover:border-river hover:text-river"
             >

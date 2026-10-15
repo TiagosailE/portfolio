@@ -8,6 +8,8 @@ export const contact = {
   github: "https://github.com/TiagosailE",
   githubUser: "TiagosailE",
   repo: "https://github.com/TiagosailE/portfolio",
+  cv: "/curriculo-tiago-santos.pdf",
+  cvFile: "Curriculo_Tiago_Santos.pdf",
 };
 
 export const about: Localized[] = [

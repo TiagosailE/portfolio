@@ -20,7 +20,8 @@
     "status": "Open to roles",
     "statusDetail": "Information Systems, graduating Dec 2026",
     "toProjects": "See projects",
-    "email": "Send an email"
+    "email": "Send an email",
+    "cv": "Download CV (PT)"
   },
   "projects": {
     "eyebrow": "Projects",
@@ -38,7 +39,8 @@
   "about": {
     "eyebrow": "About",
     "title": "From fixing computers to shipping systems",
-    "timeline": "Path so far"
+    "timeline": "Path so far",
+    "photo": "Photo of Tiago Santos"
   },
   "stack": {
     "eyebrow": "Stack",
@@ -61,7 +63,9 @@
     "copied": "Email copied",
     "whatsapp": "WhatsApp",
     "linkedin": "LinkedIn",
-    "github": "GitHub"
+    "github": "GitHub",
+    "cv": "Résumé",
+    "cvDetail": "PDF, in Portuguese"
   },
   "case": {
     "back": "All projects",
