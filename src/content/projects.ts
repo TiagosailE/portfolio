@@ -1,11 +1,13 @@
 import type { Project, Shot } from "./types";
 
-const wide = (src: string, pt: string, en: string): Shot => ({
+const wide = (src: string, pt: string, en: string, height = 1000): Shot => ({
   src,
   alt: { pt, en },
   width: 1600,
-  height: 1000,
+  height,
 });
+
+const screen = (src: string, pt: string, en: string) => wide(src, pt, en, 900);
 
 const phone = (src: string, pt: string, en: string): Shot => ({
   src,
@@ -193,6 +195,63 @@ export const featured: Project[] = [
     },
     stack: ["Ruby on Rails 8.1", "PostgreSQL", "Stripe Connect", "Hotwire", "RSpec", "Kamal"],
     links: [{ label: { pt: "Código", en: "Code" }, href: "https://github.com/TiagosailE/rota-velho-chico" }],
+    cover: wide("/projects/rota/01-inicio.webp", "Página inicial do Rota Velho Chico com o cânion do São Francisco", "Rota Velho Chico home page with the São Francisco canyon"),
+    coverKind: "wide",
+    caseStudy: {
+      context: {
+        pt: "Marketplace pensado para as agências de Paulo Afonso: cada uma cadastra seus passeios e saídas com vagas limitadas, e o turista reserva sem criar conta, pagando 30% de sinal pelo Stripe. O resto ele acerta com a agência no dia. O foco foi um problema que parece simples e não é: duas pessoas tentando pegar a última vaga no mesmo instante.",
+        en: "A marketplace built for tour agencies in Paulo Afonso: each agency lists its tours and departures with limited seats, and tourists book without an account, paying a 30% deposit through Stripe. They settle the rest with the agency on the day. The focus was a problem that looks simple and isn't: two people trying to grab the last seat at the same moment.",
+      },
+      contributions: [
+        { pt: "Catálogo com filtro por categoria e data, calendário de saídas e reserva sem cadastro, com código para consultar depois.", en: "Catalog filtered by category and date, a departure calendar and account-free booking with a lookup code." },
+        { pt: "Preço por faixa de idade e almoço opcional, com o sinal de 30% e o restante mostrados antes de pagar.", en: "Pricing by age group with optional lunch, showing the 30% deposit and the balance before paying." },
+        { pt: "Stripe Checkout e Connect: o sinal vai direto para a conta de cada agência, já descontada a comissão da plataforma.", en: "Stripe Checkout and Connect: the deposit goes straight to each agency's account, minus the platform fee." },
+        { pt: "Painel da agência com ocupação, próximas saídas e lista de embarque em PDF.", en: "Agency dashboard with occupancy, upcoming departures and a boarding list in PDF." },
+        { pt: "Cancelamento de saída com estorno em cascata por job em segundo plano.", en: "Departure cancellation with cascading refunds through a background job." },
+        { pt: "Lista de espera, avaliações, versão em inglês, CSP, rate limiting e deploy com Kamal.", en: "Waitlist, reviews, English version, CSP, rate limiting and deploys with Kamal." },
+      ],
+      decisions: [
+        {
+          title: { pt: "Lock no banco, provado em teste", en: "A database lock, proven by a test" },
+          body: {
+            pt: "A reserva trava a linha da saída com SELECT ... FOR UPDATE antes de contar as vagas. Um teste solta 20 threads reais ao mesmo tempo, por uma barreira, disputando 10 vagas: passam exatamente 10. Se o lock sair, o teste quebra.",
+            en: "A booking locks the departure row with SELECT ... FOR UPDATE before counting seats. A test releases 20 real threads at once, through a barrier, competing for 10 seats: exactly 10 get through. If the lock goes away, the test breaks.",
+          },
+        },
+        {
+          title: { pt: "PostgreSQL de propósito", en: "PostgreSQL on purpose" },
+          body: {
+            pt: "Com SQLite, que aceita um escritor por vez, a disputa pela vaga nem aconteceria e a garantia ficaria sem prova. O Postgres é o que torna o problema real e a solução verificável.",
+            en: "With SQLite, which allows one writer at a time, the race for a seat would never happen and the guarantee would have nothing to prove. Postgres is what makes the problem real and the fix verifiable.",
+          },
+        },
+        {
+          title: { pt: "Webhook que pode chegar duas vezes", en: "Webhooks that may arrive twice" },
+          body: {
+            pt: "O Stripe pode reenviar o mesmo evento. A assinatura é verificada e cada evento é processado uma vez só, então um reenvio não confirma nem estorna a reserva de novo.",
+            en: "Stripe may resend the same event. The signature is verified and each event is processed only once, so a resend never confirms or refunds a booking twice.",
+          },
+        },
+        {
+          title: { pt: "Cobertura com piso travado", en: "A coverage floor in CI" },
+          body: {
+            pt: "Hoje a cobertura é de 100% em linha e branch, e o CI recusa o merge se ela cair abaixo de 85%.",
+            en: "Coverage is at 100% for lines and branches today, and CI refuses the merge if it drops below 85%.",
+          },
+        },
+      ],
+      figures: [
+        { value: "20 × 10", label: { pt: "threads disputando vagas no teste", en: "threads racing for seats in the test" } },
+        { value: "100%", label: { pt: "de cobertura em linha e branch", en: "line and branch coverage" } },
+        { value: "47", label: { pt: "PRs mergeados", en: "merged PRs" } },
+      ],
+      gallery: [
+        wide("/projects/rota/02-passeios.webp", "Catálogo de passeios com preço por pessoa", "Tour catalog with price per person"),
+        wide("/projects/rota/03-passeio.webp", "Página do passeio com fotos do cânion", "Tour page with canyon photos"),
+        wide("/projects/rota/04-reserva.webp", "Resumo da reserva com o sinal de 30%", "Booking summary with the 30% deposit"),
+      ],
+      galleryKind: "wide",
+    },
   },
   {
     slug: "alicerce",
@@ -203,8 +262,8 @@ export const featured: Project[] = [
       en: "A multi-tenant ERP for distributors: purchasing, inventory, sales and finance.",
     },
     role: {
-      pt: "Projeto solo · 39 PRs · 17 decisões de arquitetura registradas",
-      en: "Solo project · 39 PRs · 17 architecture decision records",
+      pt: "Projeto solo · 40+ PRs · 17 decisões de arquitetura registradas",
+      en: "Solo project · 40+ PRs · 17 architecture decision records",
     },
     proof: {
       pt: "Cada empresa fica isolada no banco por Row Level Security do Postgres, e os testes rodam como um usuário sem privilégio pra provar isso.",
@@ -215,6 +274,64 @@ export const featured: Project[] = [
       { label: { pt: "Código", en: "Code" }, href: "https://github.com/TiagosailE/alicerce" },
       { label: { pt: "Decisões de arquitetura", en: "Architecture decisions" }, href: "https://github.com/TiagosailE/alicerce/tree/main/docs/adr" },
     ],
+    cover: screen("/projects/alicerce/purchase-order.webp", "Pedido de compra recebido em parte, com itens e valores", "A purchase order received in part, with items and values"),
+    coverKind: "wide",
+    caseStudy: {
+      context: {
+        pt: "ERP para distribuidora pequena, com o ciclo fechado de compra, estoque, venda e financeiro. Cada passo deixa os outros consistentes: receber mercadoria aumenta o estoque e abre a conta a pagar na mesma transação. A empresa de demonstração é uma distribuidora fictícia de material de construção em Paulo Afonso, e uma segunda empresa existe só para provar que uma nunca vê os dados da outra. Está em desenvolvimento: compras e estoque estão prontos, e vendas é a próxima fatia.",
+        en: "An ERP for small distributors, built around the closed loop of purchasing, inventory, sales and finance. Each step keeps the others consistent: receiving goods raises stock and opens the payable in the same transaction. The demo company is a fictional building materials distributor in Paulo Afonso, and a second company exists only to prove that one can never see the other's data. It's in progress: purchasing and inventory are done, and sales is the next slice.",
+      },
+      contributions: [
+        { pt: "Identidade e acesso: empresas, papéis, sessões, convites e trilha de auditoria.", en: "Identity and access: companies, roles, sessions, invitations and an audit trail." },
+        { pt: "Cadastros: produtos com conversão de unidade de compra, depósitos, clientes e fornecedores com CPF/CNPJ criptografado.", en: "Master data: products with purchase unit conversion, warehouses, customers and suppliers with encrypted tax IDs." },
+        { pt: "Estoque: saldo por depósito, razão de movimentações imutável e ajuste de inventário a custo médio.", en: "Inventory: balances per warehouse, an immutable movement ledger and count adjustments at average cost." },
+        { pt: "Compras: pedidos, recebimento parcial e contas a pagar parceladas.", en: "Purchasing: orders, partial receipts and payables split into installments." },
+        { pt: "API escrita primeiro em OpenAPI, com o cliente TypeScript do React gerado a partir dela.", en: "Schema-first OpenAPI, with the React app's TypeScript client generated from it." },
+        { pt: "CI com teste de navegador contra a imagem de produção, Trivy, gitleaks e CodeQL.", en: "CI with browser tests against the production image, Trivy, gitleaks and CodeQL." },
+      ],
+      decisions: [
+        {
+          title: { pt: "Isolamento em duas camadas", en: "Isolation in two layers" },
+          body: {
+            pt: "Toda tabela carrega a empresa, o escopo da aplicação falha fechado sem empresa definida e o Row Level Security do Postgres filtra cada consulta. A suíte inteira roda com o mesmo usuário sem privilégio da produção, e um teste quebra o build se uma rota da API não tiver teste de isolamento.",
+            en: "Every table carries the company, the app scope fails closed without one, and Postgres Row Level Security filters every query. The whole suite runs as the same unprivileged user as production, and a test breaks the build if an API route has no isolation test.",
+          },
+        },
+        {
+          title: { pt: "Estoque que não se reescreve", en: "A ledger that can't be rewritten" },
+          body: {
+            pt: "Cada movimentação guarda quantidade, valor e o saldo depois dela. UPDATE, DELETE e TRUNCATE são barrados por permissão e trigger, e uma CHECK impede saldo negativo sem autorização registrada.",
+            en: "Each movement stores its quantity, value and the balance after it. UPDATE, DELETE and TRUNCATE are blocked by privileges and triggers, and a CHECK prevents negative stock without a recorded allowance.",
+          },
+        },
+        {
+          title: { pt: "Locks sempre na mesma ordem", en: "Locks in one global order" },
+          body: {
+            pt: "Todo comando que mexe em estoque trava as linhas na mesma ordem, com timeout que responde 409 em vez de travar a requisição. Os testes de concorrência soltam threads reais ao mesmo tempo.",
+            en: "Every command that touches stock locks rows in the same order, with a timeout that answers 409 instead of hanging. Concurrency tests release real threads together.",
+          },
+        },
+        {
+          title: { pt: "Escrita crítica idempotente", en: "Idempotent critical writes" },
+          body: {
+            pt: "Recebimento e ajuste de estoque exigem uma chave de idempotência. Repetir a requisição devolve o resultado original, e a mesma chave com outro conteúdo é recusada.",
+            en: "Receipts and stock adjustments require an idempotency key. Replaying the request returns the original result, and the same key with a different body is refused.",
+          },
+        },
+      ],
+      figures: [
+        { value: "17", label: { pt: "decisões de arquitetura registradas", en: "architecture decision records" } },
+        { value: "4/7", label: { pt: "fatias do roteiro prontas", en: "roadmap slices done" } },
+        { value: "90%", label: { pt: "cobertura mínima de linhas no CI", en: "minimum line coverage in CI" } },
+      ],
+      gallery: [
+        screen("/projects/alicerce/stock-balances.webp", "Saldos de estoque por produto e depósito", "Stock balances by product and warehouse"),
+        screen("/projects/alicerce/stock-movements.webp", "Razão de movimentações com o saldo depois de cada linha", "Movement ledger with the balance after each line"),
+        screen("/projects/alicerce/payables.webp", "Contas a pagar criadas pelos recebimentos, em parcelas", "Payables created by receipts, in installments"),
+        screen("/projects/alicerce/stock-balances-dark.webp", "Tema escuro", "Dark theme"),
+      ],
+      galleryKind: "wide",
+    },
   },
 ];
 

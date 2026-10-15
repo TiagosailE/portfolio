@@ -6,7 +6,7 @@ import { caseStudies, findCaseStudy } from "@/content/projects";
 import { pick } from "@/content/types";
 import { routing, type Locale } from "@/i18n/routing";
 import { getPathname, Link } from "@/i18n/navigation";
-import { ExternalLinks } from "@/components/projects";
+import { ExternalLinks, StatusTag } from "@/components/projects";
 import { PhoneStack } from "@/components/phone-stack";
 import { Reveal } from "@/components/reveal";
 
@@ -56,6 +56,7 @@ export default async function CaseStudyPage({ params }: PageProps<"/[locale]/pro
         <h1 className="display mt-8 text-[clamp(3rem,11vw,8rem)]" data-station>
           {project.name}
         </h1>
+        {project.status && <StatusTag text={pick(project.status, lang)} />}
         <p className="mt-6 max-w-[52ch] text-[clamp(1.15rem,2vw,1.4rem)] leading-snug">
           {pick(project.tagline, lang)}
         </p>
