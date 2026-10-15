@@ -20,7 +20,7 @@ export function SiteHeader() {
         <Link href="/" className="display-tight text-[1.05rem] tracking-tight">
           Tiago Santos
         </Link>
-        <nav aria-label="Principal" className="flex items-center gap-5 text-sm sm:gap-7">
+        <nav aria-label={t("label")} className="flex items-center gap-5 text-sm sm:gap-7">
           <Link href={{ pathname: "/", hash: "projetos" }} className="hidden hover:text-river sm:inline">
             {t("projects")}
           </Link>
